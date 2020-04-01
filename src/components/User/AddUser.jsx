@@ -15,7 +15,7 @@ const AddUser = (props) => {
 
   const addUserHandler = (e) => {
     e.preventDefault();
-    if (!enteredUsername.trim() || !enteredAge) {
+    if (!enteredUsername.trim() && !enteredAge) {
       setError({
         title: "invalid input",
         errorMessage: "please input a valid name and age",
@@ -29,15 +29,14 @@ const AddUser = (props) => {
       });
       return false;
     }
+    if (!enteredUsername.trim()) {
+      setError({
+        title: "No Name",
+        errorMessage: "please input username",
+      });
+      return false;
+    }
 
-    // if (!enteredUsername.trim()) {
-    //   setError({
-    //     title: "invalid input",
-    //     errorMessage: "please input a name",
-    //   });
-    //   return false;
-    // }
-    // console.log(enteredUsername, enteredAge);
     props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
