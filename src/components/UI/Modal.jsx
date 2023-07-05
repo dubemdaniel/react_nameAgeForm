@@ -9,7 +9,7 @@ const Modal = (props) => {
       <div className={style.backdrop} onClick={props.onDelete} />
       <Card className={style.modal}>
         <header className={style.header}>
-          <p>{props.title}</p>
+          <h2>{props.title}</h2>
         </header>
         <div className={style.content}>
           <p>{props.message}</p>
